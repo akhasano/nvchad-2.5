@@ -16,29 +16,31 @@ return {
   {
     "williamboman/mason.nvim",
     opts = {
-    pkgs = {
-      "lua-language-server",
-      "stylua",
-      "html-lsp",
-      "css-lsp",
-      "prettier",
-      "gopls",
+      pkgs = {
+        "lua-language-server",
+        "stylua",
+        "html-lsp",
+        "css-lsp",
+        "prettier",
+        "gopls",
+        "terraformls",
+      },
     },
-   },
   },
 
   {
   	"nvim-treesitter/nvim-treesitter",
     opts = {
-    pkgs = {
-      "vim",
-      "lua",
-      "vimdoc",
-      "html",
-      "css",
-      "go",
+      pkgs = {
+        "vim",
+        "lua",
+        "vimdoc",
+        "html",
+        "css",
+        "go",
+        "terraform",
+      },
     },
-   },
   },
 
   {
