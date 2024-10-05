@@ -59,5 +59,13 @@ return {
     opts = function()
       return require "configs.null-ls"
     end,
-   },
+  },
+
+  {
+    "lewis6991/gitsigns.nvim",
+    opts = {
+      current_line_blame = true,
+    },
+  },
+
 }

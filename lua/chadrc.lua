@@ -8,14 +8,4 @@ local M = {}
 M.base46 = {
 	theme = "chadracula",
 }
-
-vim.cmd('set autochdir')
-vim.cmd('set mouse=n')
-vim.cmd('set foldmethod=indent')
-vim.cmd('set foldlevel=100')
-vim.cmd('set clipboard=unnamedplus')
-vim.cmd('set number')
-vim.cmd('set relativenumber')  -- Включаем относительные номера строк
-
 return M
-
