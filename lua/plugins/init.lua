@@ -22,12 +22,16 @@ return {
         "prettier",
         "gopls",
         "terraformls",
+        "jsonnetfmt",
+        "yamlfmt",
+        "jsonlint",
+        "yamllint",
       },
     },
   },
 
   {
-  	"nvim-treesitter/nvim-treesitter",
+    "nvim-treesitter/nvim-treesitter",
     opts = {
       pkgs = {
         "vim",
@@ -37,6 +41,8 @@ return {
         "css",
         "go",
         "terraform",
+        "json",
+        "yaml",
       },
     },
   },
@@ -65,18 +71,18 @@ return {
   },
 
   {
-    'abecodes/tabout.nvim',
+    "abecodes/tabout.nvim",
     lazy = false,
     config = function()
-      require('configs.tabout')
+      require "configs.tabout"
     end,
     dependencies = { -- These are optional
       "nvim-treesitter/nvim-treesitter",
       "L3MON4D3/LuaSnip",
-      "hrsh7th/nvim-cmp"
+      "hrsh7th/nvim-cmp",
     },
-    opt = true,  -- Set this to true if the plugin is optional
-    event = 'InsertCharPre', -- Set the event to 'InsertCharPre' for better compatibility
+    opt = true,              -- Set this to true if the plugin is optional
+    event = "InsertCharPre", -- Set the event to 'InsertCharPre' for better compatibility
     priority = 1000,
   },
 
@@ -87,5 +93,4 @@ return {
       return {}
     end,
   },
-
 }

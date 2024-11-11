@@ -15,7 +15,7 @@ local options = {
   formatters_by_ft = {
     go = { "gofmt" },
     rust = { "rustfmt" },
-    python = { 'black' },
+    python = { "black" },
     c = { "clang_format" },
     lua = { "stylua" },
     bash = { "shfmt", "shellcheck" },
@@ -24,8 +24,8 @@ local options = {
     css = { "prettier" },
     html = { "prettier" },
     tf = { "terraform_fmt" },
-    json = { "jsonnetfmt" },
-    yaml = { "yamlfmt" },
+    json = { "jsonnetfmt", "jsonlint" },
+    yaml = { "yamlfmt", "yamllint" },
   },
   log_level = vim.log.levels.DEBUG,
 
