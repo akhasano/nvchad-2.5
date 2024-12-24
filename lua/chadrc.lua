@@ -18,10 +18,10 @@ M.ui = {
 M.term = {
   float = {
     border = "rounded", -- стиль границы окна (можно использовать "single", "double" и др.)
-    row = 0.05,
-    col = 0.05,
-    width = 0.9,
-    height = 0.8,
+    col = 0.02,
+    row = 0,
+    width = 0.96,
+    height = 0.9,
   }
 }
 
