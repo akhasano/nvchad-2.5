@@ -4,9 +4,8 @@ require("nvchad.configs.lspconfig").defaults()
 local lspconfig = require "lspconfig"
 
 -- EXAMPLE
-local servers = { "html", "cssls", "gopls", "terraformls", "bashls", "clangd" }
+local servers = { "html", "cssls", "gopls", "terraformls", "bashls", "clangd", "ansiblels", "pyright" }
 local nvlsp = require "nvchad.configs.lspconfig"
-vim.lsp.set_log_level("debug")
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do
@@ -16,4 +15,3 @@ for _, lsp in ipairs(servers) do
     capabilities = nvlsp.capabilities,
   }
 end
-
