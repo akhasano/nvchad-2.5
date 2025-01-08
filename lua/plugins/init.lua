@@ -55,6 +55,7 @@ return {
   {
     -- Hop is an EasyMotion-like plugin allowing you to jump anywhere in a document with as few keystrokes as possible.
     "smoka7/hop.nvim",
+    -- lazy = false,
     version = "v2.7.2",
     opts = {
       keys = "sdfghjklcvbnm",
@@ -89,7 +90,7 @@ return {
       "L3MON4D3/LuaSnip",
       "hrsh7th/nvim-cmp",
     },
-    opt = true, -- Set this to true if the plugin is optional
+    opt = true,              -- Set this to true if the plugin is optional
     event = "InsertCharPre", -- Set the event to 'InsertCharPre' for better compatibility
     priority = 1000,
   },
@@ -106,5 +107,11 @@ return {
   {
     -- Single tabpage interface for easily cycling through diffs for all modified files for any git rev.
     "sindrets/diffview.nvim",
+  },
+
+  {
+    -- debugger
+    "rcarriga/nvim-dap-ui",
+    dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio", "theHamsta/nvim-dap-virtual-text" }
   },
 }

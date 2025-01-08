@@ -1,15 +1,5 @@
 local options = {
   lazy = false,
-  keys = {
-    {
-      "<leader>fs",
-      function()
-        require("conform").format { async = true, lsp_fallback = true }
-      end,
-      mode = "",
-      desc = "[F]ormat buffer",
-    },
-  },
   notify_on_error = false,
   format_on_save = true,
   formatters_by_ft = {
@@ -28,12 +18,6 @@ local options = {
     yaml = { "yamlfmt", "yamllint" },
   },
   log_level = vim.log.levels.DEBUG,
-
-  -- format_on_save = {
-  --   -- These options will be passed to conform.format()
-  --   timeout_ms = 500,
-  --   lsp_fallback = true,
-  -- },
 }
 
 return options
