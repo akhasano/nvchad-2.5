@@ -112,6 +112,18 @@ return {
   {
     -- debugger
     "rcarriga/nvim-dap-ui",
-    dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio", "theHamsta/nvim-dap-virtual-text" }
+    dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio", "theHamsta/nvim-dap-virtual-text" },
+    config = function()
+      require("dapui").setup()
+    end,
   },
+
+  {
+    "hrsh7th/nvim-cmp",
+    dependencies = {
+      "hrsh7th/cmp-cmdline", -- Автодополнение для командной строки
+      "hrsh7th/cmp-buffer",  -- Для дополнения текста в буфере
+    },
+  }
+
 }
