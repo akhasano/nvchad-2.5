@@ -10,10 +10,10 @@ dap.adapters.lldb = {
 dap.configurations.cpp = {
   {
     name = "Launch",
-    type = "lldb",
+    type = "gdb",
     request = "launch",
     program = function()
-      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'app')
     end,
     cwd = '${workspaceFolder}',
     stopOnEntry = false,
