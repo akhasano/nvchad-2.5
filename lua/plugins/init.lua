@@ -124,6 +124,11 @@ return {
       "hrsh7th/cmp-cmdline", -- Автодополнение для командной строки
       "hrsh7th/cmp-buffer",  -- Для дополнения текста в буфере
     },
+  },
+
+  {
+    "WhoIsSethDaniel/mason-tool-installer"
   }
+
 
 }

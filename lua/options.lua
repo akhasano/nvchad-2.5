@@ -24,6 +24,12 @@ require("nvim-tree").setup({
   },
 })
 
+require("mason-tool-installer").setup({
+  ensure_installed = {
+    "delve", -- Ensure Delve is installed
+  },
+})
+
 --fix terraform and hcl comment string
 vim.api.nvim_create_autocmd("FileType", {
   group = vim.api.nvim_create_augroup("FixTerraformCommentString", { clear = true }),
