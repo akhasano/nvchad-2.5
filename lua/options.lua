@@ -21,9 +21,9 @@ vim.cmd('set wildoptions=pum')
 
 if vim.g.neovide then
   vim.g.neovide_input_macos_option_key_is_meta = 'only_left'
+  vim.g.neovide_input_ime = true
   vim.env.PATH = vim.env.PATH .. ':/opt/homebrew/bin'
 end
-
 
 require("nvim-tree").setup({
   filters = {
