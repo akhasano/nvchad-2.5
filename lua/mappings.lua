@@ -25,11 +25,12 @@ map('n', '<F5>', ':lua require"dap".continue()<CR>', { noremap = true, silent = 
 map('n', '<F10>', ':lua require"dap".step_over()<CR>', { noremap = true, silent = true })
 map('n', '<F11>', ':lua require"dap".step_into()<CR>', { noremap = true, silent = true })
 map('n', '<F12>', ':lua require"dap".step_out()<CR>', { noremap = true, silent = true })
-map('n', '<leader><leader>b', ':lua require"dap".toggle_breakpoint()<CR>',
+map('n', '<leader>db', ':lua require"dap".toggle_breakpoint()<CR>',
   { noremap = true, silent = true, desc = "set/unset breakpoint" })
-map('n', '<leader><leader>B', ':lua require"dap".set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>',
+map('n', '<leader>dc', ':lua require"dap".continue()<CR>', { noremap = true, silent = true, desc = 'Continue' })
+map('n', '<leader>dB', ':lua require"dap".set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>',
   { noremap = true, silent = true, desc = "set/unset conditional breakpoint" })
 map('n', '<leader>dr', ':lua require"dap".repl.open()<CR>', { noremap = true, silent = true })
-
-
+map('n', '<leader>dC', ':lua require("dap").run_to_cursor()', { desc = "Run to Cursor" })
+map('n', '<leader>dT', ':lua require("dap").terminate()', { desc = "Terminate" })
 map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
