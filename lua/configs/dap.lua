@@ -42,7 +42,7 @@ dap.configurations.go = {
       if #args == 0 then
         print("⚠️ .arg.debug найден, но пуст или нераспознан")
       else
-        print("✅ .arg.debug загружен")
+        print("✅ .arg.debug загружен. Аргументы: " .. table.concat(args, " | "))
       end
 
       return args
@@ -78,7 +78,6 @@ dap.configurations.go = {
     end,
   },
 }
-
 
 dap.listeners.before.attach.dapui_config = function()
   dapui.open()
