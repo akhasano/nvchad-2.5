@@ -15,7 +15,8 @@ dap.configurations.go = {
     type = "go",
     name = "Debug (.arg.debug + .env.debug)",
     request = "launch",
-    program = "${file}",
+    -- program = "${file}",
+    program = "${workspaceFolder}",
     outputMode = "remote",
     showLog = true,
     showRegisters = false,
@@ -42,7 +43,8 @@ dap.configurations.go = {
       if #args == 0 then
         print("⚠️ .arg.debug найден, но пуст или нераспознан")
       else
-        print("✅ .arg.debug загружен. Аргументы: " .. table.concat(args, " | "))
+        print("✅ .arg.debug загружен.")
+        -- print("✅ .arg.debug загружен. Аргументы: " .. table.concat(args, " | "))
       end
 
       return args
