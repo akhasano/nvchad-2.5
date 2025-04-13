@@ -13,29 +13,46 @@ dap.adapters.go = {
 dap.configurations.go = {
   {
     type = "go",
-    name = "Debug (args + .env.debug)",
+    name = "Debug (.arg.debug + .env.debug)",
     request = "launch",
     program = "${file}",
-    -- console = 'integratedTerminal',
-    -- outputCapture = "std", -- Перехватывать stdout/stderr
     outputMode = "remote",
     showLog = true,
     showRegisters = false,
     stopOnEntry = false,
 
     args = function()
-      local input = vim.fn.input("Args: ")
-      if input == nil or input == "" then
+      local arg_file = vim.fn.getcwd() .. "/.arg.debug"
+
+      if vim.fn.filereadable(arg_file) == 0 then
+        -- print("⚠️ .arg.debug not found")
         return {}
       end
-      return vim.fn.split(input, " ", true)
+
+      local args = {}
+      for line in io.lines(arg_file) do
+        if line:match("^%s*$") == nil and not line:match("^%s*#") then
+          local trimmed = line:match("^%s*(.-)%s*$")
+          if trimmed ~= "" then
+            table.insert(args, trimmed)
+          end
+        end
+      end
+
+      if #args == 0 then
+        print("⚠️ .arg.debug найден, но пуст или нераспознан")
+      else
+        print("✅ .arg.debug загружен")
+      end
+
+      return args
     end,
 
     env = function()
       local env_file = vim.fn.getcwd() .. "/.env.debug"
 
       if vim.fn.filereadable(env_file) == 0 then
-        print("⚠️ .env.debug not found")
+        -- print("⚠️ .env.debug not found")
         return nil
       end
 
@@ -61,6 +78,7 @@ dap.configurations.go = {
     end,
   },
 }
+
 
 dap.listeners.before.attach.dapui_config = function()
   dapui.open()
