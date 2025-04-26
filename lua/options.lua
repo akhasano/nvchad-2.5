@@ -18,12 +18,35 @@ vim.cmd('set wildmode=longest:full,full')
 vim.cmd('set wildoptions=pum')
 -- vim.cmd('cd ~/Documents')
 
-
 if vim.g.neovide then
   vim.g.neovide_input_macos_option_key_is_meta = 'only_left'
   vim.g.neovide_input_ime = true
   vim.env.PATH = vim.env.PATH .. ':/opt/homebrew/bin'
 end
+
+-- neovide fix
+-- Разрешить использование логотипа (Cmd) для модификаторов
+vim.g.neovide_input_use_logo = true
+vim.g.neovide_input_macos_alt_is_meta = false -- чтобы Option работал как обычная клавиша
+
+local opts = { noremap = true, silent = true }
+
+-- Копирование
+vim.keymap.set('v', '<D-c>', '"+y', opts)
+vim.keymap.set('v', '<A-c>', '"+y', opts) -- Option+C тоже копирует
+
+-- Вставка в normal-режиме
+vim.keymap.set('n', '<D-v>', '"+p', opts)
+vim.keymap.set('n', '<A-v>', '"+p', opts) -- Option+V тоже вставляет
+
+-- Вставка в insert-режиме
+vim.keymap.set('i', '<D-v>', '<C-r>+', opts)
+vim.keymap.set('i', '<A-v>', '<C-r>+', opts)
+
+-- Вставка в терминальном режиме
+vim.keymap.set('t', '<D-v>', [[<C-\><C-n>"+pa]], opts)
+vim.keymap.set('t', '<A-v>', [[<C-\><C-n>"+pa]], opts)
+-- end neovide fix
 
 require("nvim-tree").setup({
   filters = {
