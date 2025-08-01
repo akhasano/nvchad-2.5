@@ -65,7 +65,7 @@ return {
         multiline_threshold = 20, -- Количество строк, после которого отображается многострочный контекст
         trim_scope = "outer",     -- Обрезка контекста: 'inner' (только текущий scope), 'outer' (все вложенные)
         mode = "cursor",
-        separator = "-",
+        separator = "─",
         on_attach = nil,
       }
     end,
