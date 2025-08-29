@@ -34,18 +34,25 @@ if vim.g.neovide then
 
   vim.api.nvim_create_autocmd({ "BufNewFile", "BufEnter" }, {
     group = "NeovideAutoSaveGroup",
-    callback = function()
-      local bufname = vim.api.nvim_buf_get_name(0)
+    callback = function(args)
+      local buf = args.buf
+      local bufname = vim.api.nvim_buf_get_name(buf)
+      local buftype = vim.api.nvim_buf_get_option(buf, "buftype")
+
+      -- пропускаем служебные буферы (Telescope, help и пр.)
+      if buftype ~= "" then
+        return
+      end
+
       if bufname == "" then
         local filename = os.date("%Y%m%d-%H%M%S")
         local filepath = autosave_dir .. "/" .. filename
-        vim.api.nvim_buf_set_name(0, filepath)
-        vim.cmd("write")
+        vim.api.nvim_buf_set_name(buf, filepath)
+        vim.cmd("silent write")
       end
     end,
   })
 end
-
 
 -- load theme
 dofile(vim.g.base46_cache .. "defaults")
