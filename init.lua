@@ -26,6 +26,8 @@ require("lazy").setup({
 }, lazy_config)
 
 if vim.g.neovide then
+  vim.g.neovide_remember_window_size = true
+
   local autosave_dir = vim.fn.expand("~/tmp/.neovide-autosave")
   vim.fn.mkdir(autosave_dir, "p")
   vim.cmd("cd " .. autosave_dir)
