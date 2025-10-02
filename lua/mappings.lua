@@ -11,6 +11,12 @@ map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 map("i", "jj", "<ESC>")
 
+-- в терминале сначала выйти в нормальный режим <C-\><C-n>, потом двинуть окно
+map("t", "<C-h>", [[<C-\><C-n><C-w>h]], { desc = "Terminal window left" })
+map("t", "<C-j>", [[<C-\><C-n><C-w>j]], { desc = "Terminal window down" })
+map("t", "<C-k>", [[<C-\><C-n><C-w>k]], { desc = "Terminal window up" })
+map("t", "<C-l>", [[<C-\><C-n><C-w>l]], { desc = "Terminal window right" })
+
 map("n", "<leader><leader>w", "<cmd> HopWord <CR>", { desc = "hint all words" })
 map("n", "<leader><leader>j", "<cmd> HopLine <CR>", { desc = "hint line" })
 
