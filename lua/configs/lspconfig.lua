@@ -1,18 +1,28 @@
 -- load defaults i.e lua_lsp
 require("nvchad.configs.lspconfig").defaults()
 
-local lspconfig = require "lspconfig"
-
--- EXAMPLE
--- local servers = { "html", "cssls", "gopls", "terraformls", "bashls", "clangd", "ansiblels", "pyright" }
-local servers = { "html", "cssls", "gopls", "terraformls", "bashls", "ansiblels", "pyright" }
 local nvlsp = require "nvchad.configs.lspconfig"
 
--- lsps with default config
+-- список серверов
+local servers = { "html", "cssls", "gopls", "terraformls", "bashls", "ansiblels", "pyright" }
+
+-- настройка LSP через новый API
 for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = nvlsp.on_attach,
-    on_init = nvlsp.on_init,
+  vim.lsp.config(lsp, {
     capabilities = nvlsp.capabilities,
-  }
+    flags = { debounce_text_changes = 150 },
+  })
 end
+
+-- включение LSP
+vim.lsp.enable(servers)
+
+-- обработка on_attach теперь делается через автокоманду
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    local bufnr = args.buf
+    nvlsp.on_attach(client, bufnr)
+  end,
+})
+
