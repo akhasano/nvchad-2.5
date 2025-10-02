@@ -4,8 +4,8 @@ require('hop')
 require('configs.dap')
 
 local qf = require("configs.quickfix")
-
 local map = vim.keymap.set
+local opts = { noremap = true, silent = true }
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
@@ -40,3 +40,22 @@ map('n', '<leader>dr', ':lua require"dap".repl.open()<CR>', { noremap = true, si
 map('n', '<leader>dC', ':lua require("dap").run_to_cursor()', { desc = "Run to Cursor" })
 map('n', '<leader>dT', ':lua require("dap").terminate()', { desc = "Terminate" })
 map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+
+-- Копирование
+map('v', '<D-c>', '"+y', opts)
+map('v', '<A-c>', '"+y', opts) -- Option+C тоже копирует
+
+-- Вставка в normal-режиме
+map('n', '<D-v>', '"+p', opts)
+map('n', '<A-v>', '"+p', opts) -- Option+V тоже вставляет
+
+-- Вставка в insert-режиме
+map('i', '<D-v>', '<C-r>+', opts)
+map('i', '<A-v>', '<C-r>+', opts)
+
+-- Вставка в терминальном режиме
+map('t', '<D-v>', [[<C-\><C-n>"+pa]], opts)
+map('t', '<A-v>', [[<C-\><C-n>"+pa]], opts)
+-- end neovide fix
+
+
