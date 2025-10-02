@@ -6,7 +6,6 @@ local options = {
     go = { "gofmt" },
     rust = { "rustfmt" },
     python = { "black" },
-    c = { "clang_format" },
     lua = { "stylua" },
     bash = { "shfmt", "shellcheck" },
     zsh = { "shfmt", "shellcheck" },
