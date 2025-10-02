@@ -41,7 +41,7 @@ return {
           "terraform",
           "json",
           "yaml",
-          "c",
+          -- "c",
           "bash",
           "make",
           "python",
@@ -58,12 +58,12 @@ return {
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     config = function()
       require("treesitter-context").setup {
-        enable = true,            -- Включить контекст
-        max_lines = 5,            -- Максимальное количество отображаемых строк контекста (0 для неограниченного)
-        min_window_height = 0,    -- Минимальная высота окна для отображения контекста
-        line_numbers = true,      -- Отображать номера строк
+        enable = true, -- Включить контекст
+        max_lines = 5, -- Максимальное количество отображаемых строк контекста (0 для неограниченного)
+        min_window_height = 0, -- Минимальная высота окна для отображения контекста
+        line_numbers = true, -- Отображать номера строк
         multiline_threshold = 20, -- Количество строк, после которого отображается многострочный контекст
-        trim_scope = "outer",     -- Обрезка контекста: 'inner' (только текущий scope), 'outer' (все вложенные)
+        trim_scope = "outer", -- Обрезка контекста: 'inner' (только текущий scope), 'outer' (все вложенные)
         mode = "cursor",
         separator = "─",
         on_attach = nil,
@@ -109,7 +109,7 @@ return {
       "L3MON4D3/LuaSnip",
       "hrsh7th/nvim-cmp",
     },
-    opt = true,              -- Set this to true if the plugin is optional
+    opt = true, -- Set this to true if the plugin is optional
     event = "InsertCharPre", -- Set the event to 'InsertCharPre' for better compatibility
     priority = 1000,
   },
@@ -141,13 +141,11 @@ return {
     "hrsh7th/nvim-cmp",
     dependencies = {
       "hrsh7th/cmp-cmdline", -- Автодополнение для командной строки
-      "hrsh7th/cmp-buffer",  -- Для дополнения текста в буфере
+      "hrsh7th/cmp-buffer", -- Для дополнения текста в буфере
     },
   },
 
   {
-    "WhoIsSethDaniel/mason-tool-installer"
-  }
-
-
+    "WhoIsSethDaniel/mason-tool-installer",
+  },
 }
