@@ -16,7 +16,11 @@ vim.cmd('set whichwrap=b,s') -- Выключить переход на нову�
 vim.cmd('set wildmenu')
 vim.cmd('set wildmode=longest:full,full')
 vim.cmd('set wildoptions=pum')
--- vim.cmd('cd ~/Documents')
+
+vim.cmd([[
+  set list
+  set listchars=tab:·┈,trail:￮,multispace:￮,lead:\ ,extends:▶,precedes:◀,nbsp:‿
+]])
 
 if vim.g.neovide then
   vim.g.neovide_input_macos_option_key_is_meta = 'only_left'
@@ -32,6 +36,9 @@ vim.g.neovide_input_macos_alt_is_meta = false -- чтобы Option работа�
 require("nvim-tree").setup({
   filters = {
     dotfiles = true,
+  },
+    view = {
+    width = 30,
   },
 })
 

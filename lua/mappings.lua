@@ -19,6 +19,8 @@ map("t", "<C-l>", [[<C-\><C-n><C-w>l]], { desc = "Terminal window right" })
 
 map("n", "<leader><leader>w", "<cmd> HopWord <CR>", { desc = "hint all words" })
 map("n", "<leader><leader>j", "<cmd> HopLine <CR>", { desc = "hint line" })
+map("n", "<leader><leader>r", ":%s/\\s\\+$//e<CR>", { desc = "Remove trailing spaces" })
+
 
 map("n", "<leader>lc", "<cmd> %bd <CR>", { desc = "close all buffers" })
 map("n", "<leader>lo", "<cmd> %bd|e#|bd# <CR>", { desc = "close all buffers except this" })
