@@ -8,6 +8,7 @@ local servers = {
   bashls = {},
   ansiblels = {},
   pyright = {},
+  lua_ls = {},
 }
 
 for name, opts in pairs(servers) do
