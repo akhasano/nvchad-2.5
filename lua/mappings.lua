@@ -60,4 +60,5 @@ map('t', '<D-v>', [[<C-\><C-n>"+pa]], opts)
 map('t', '<A-v>', [[<C-\><C-n>"+pa]], opts)
 -- end neovide fix
 
-
+-- https://github.com/neovim/neovim/issues/11804#issuecomment-1113927971
+map('n', 'x', '"_x')
