@@ -19,7 +19,7 @@ vim.cmd('set wildoptions=pum')
 
 vim.cmd([[
   set list
-  set listchars=tab:·┈,trail:￮,multispace:￮,lead:\ ,extends:▶,precedes:◀,nbsp:‿
+  set listchars=tab:-»,trail:￮,multispace:·,lead:\ ,extends:▶,precedes:◀,nbsp:‿
 ]])
 
 if vim.g.neovide then
